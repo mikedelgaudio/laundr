@@ -1,0 +1,44 @@
+.contact-container {
+  background-color: var(--brand-alt);
+  border-radius: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5em;
+  padding: 2em 1em;
+}
+.contact-heading {
+  display: flex;
+  flex-flow: column wrap;
+  gap: 0.5em;
+}
+
+.contact-title {
+  margin: 0;
+}
+
+.contact-subtitle {
+  margin: 0;
+}
+
+.contact-form {
+  max-width: 50rem;
+}
+
+.contact-input {
+  background-color: var(--brand-alt);
+  color: #000;
+  border: 2px solid var(--brand-gray);
+  border-radius: 4px;
+  padding: 1.5em 0;
+  text-indent: 1rem;
+  line-height: inherit;
+  width: 100%;
+  font-family: inherit;
+  margin: 1em 0;
+}
+
+.contact-input::placeholder {
+  color: #000;
+  font-size: 1rem;
+  font-weight: 400;
+}
