@@ -112,27 +112,17 @@ function Sidebar(props) {
     }
   }
 
-  function select(e) {
-    let html = `${e.target.innerHTML}`;
-    if (html.includes("Davis")) {
-      setSelected({ davis: true, jonas: false, cph: false, humphrey: false });
-    } else if (html.includes("Jonas")) {
-      setSelected({ davis: false, jonas: true, cph: false, humphrey: false });
-    } else if (html.includes("Castle Point")) {
-      setSelected({ davis: false, jonas: false, cph: true, humphrey: false });
-    } else {
-      setSelected({ davis: false, jonas: false, cph: false, humphrey: true });
-    }
-  }
-
   const classes = useStyles();
 
   return (
     <div className={classes.navbar}>
       <div className="navbar-header">
         <p>{props.school} Laundry Rooms</p>
-        {selected.davis ? (
-          <div className="selected-laundry-room-name-div" onClick={select}>
+        {props.selected.davis ? (
+          <div
+            className="selected-laundry-room-name-div"
+            onClick={props.select}
+          >
             {favorited.davis ? (
               <StarIcon
                 className={classes.star}
@@ -147,7 +137,7 @@ function Sidebar(props) {
             <p className="laundry-room-name">Davis</p>
           </div>
         ) : (
-          <div className="laundry-room-name-div" onClick={select}>
+          <div className="laundry-room-name-div" onClick={props.select}>
             {favorited.davis ? (
               <StarIcon
                 className={classes.star}
@@ -162,8 +152,11 @@ function Sidebar(props) {
             <p className="laundry-room-name">Davis</p>
           </div>
         )}
-        {selected.jonas ? (
-          <div className="selected-laundry-room-name-div" onClick={select}>
+        {props.selected.jonas ? (
+          <div
+            className="selected-laundry-room-name-div"
+            onClick={props.select}
+          >
             {favorited.jonas ? (
               <StarIcon
                 className={classes.star}
@@ -178,7 +171,7 @@ function Sidebar(props) {
             <p className="laundry-room-name">Jonas</p>
           </div>
         ) : (
-          <div className="laundry-room-name-div" onClick={select}>
+          <div className="laundry-room-name-div">
             {favorited.jonas ? (
               <StarIcon
                 className={classes.star}
@@ -190,12 +183,12 @@ function Sidebar(props) {
                 onClick={() => favorite("jonas")}
               ></StarBorderIcon>
             )}
-            <p className="laundry-room-name" onClick={select}>
+            <p className="laundry-room-name" onClick={props.select}>
               Jonas
             </p>
           </div>
         )}
-        {selected.cph ? (
+        {props.selected.cph ? (
           <div className="selected-laundry-room-name-div">
             {favorited.cph ? (
               <StarIcon
@@ -223,12 +216,12 @@ function Sidebar(props) {
                 onClick={() => favorite("cph")}
               ></StarBorderIcon>
             )}
-            <p className="laundry-room-name" onClick={select}>
+            <p className="laundry-room-name" onClick={props.select}>
               Castle Point
             </p>
           </div>
         )}
-        {selected.humphrey ? (
+        {props.selected.humphrey ? (
           <div className="selected-laundry-room-name-div">
             {favorited.humphrey ? (
               <StarIcon
@@ -256,7 +249,7 @@ function Sidebar(props) {
                 onClick={() => favorite("hump")}
               ></StarBorderIcon>
             )}
-            <p className="laundry-room-name" onClick={select}>
+            <p className="laundry-room-name" onClick={props.select}>
               Humphrey's
             </p>
           </div>
