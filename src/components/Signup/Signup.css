@@ -1,0 +1,14 @@
+.text-white {
+  color: var(--brand-alt);
+}
+
+.login-snackbar {
+  gap: 1em;
+}
+
+.login-options-container {
+  display: flex;
+  justify-content: center;
+  align-items: ce;
+  padding-top: 1em;
+}
