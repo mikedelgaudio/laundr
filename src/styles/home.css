@@ -82,6 +82,33 @@
   visibility: "hidden";
 }
 
+.machine-label {
+  padding-top: 1em;
+}
+
+.issue-container {
+  display: grid;
+  padding-top: 3em;
+  place-content: center;
+}
+
+.report-incorrect-btn {
+  color: var(--error);
+  border: 3px solid var(--error);
+  border-radius: 5px;
+  background: transparent;
+  padding: 1em;
+  font-weight: 600;
+  max-width: 13rem;
+  transition: 0.1s ease-in-out background;
+  cursor: pointer;
+}
+
+.report-incorrect-btn:hover {
+  color: white;
+  background: var(--error);
+}
+
 .in-use {
   color: red;
   font-weight: bold;

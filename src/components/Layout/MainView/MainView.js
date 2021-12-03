@@ -73,14 +73,11 @@ function MainView(props) {
               handleWasherClick={props?.handleWasherClick[0]}
             ></Washer>
           </div>
-          <Button
-            className={classes.button}
-            variant="outlined"
-            color="primary"
-            onClick={onIncorrectClick}
-          >
-            Report Incorrect
-          </Button>
+          <div className="issue-container">
+            <button onClick={onIncorrectClick} className="report-incorrect-btn">
+              REPORT INCORRECT
+            </button>
+          </div>
         </div>
       ) : props?.selected.jonas ? (
         <div className="main-div">
@@ -133,14 +130,11 @@ function MainView(props) {
               handleWasherClick={props?.handleWasherClick[1]}
             ></Washer>
           </div>
-          <Button
-            className={classes.button}
-            variant="outlined"
-            color="primary"
-            onClick={onIncorrectClick}
-          >
-            Report Incorrect
-          </Button>
+          <div className="issue-container">
+            <button onClick={onIncorrectClick} className="report-incorrect-btn">
+              REPORT INCORRECT
+            </button>
+          </div>
         </div>
       ) : props?.selected.cph ? (
         <div className="main-div">
@@ -193,14 +187,11 @@ function MainView(props) {
               handleWasherClick={props?.handleWasherClick[2]}
             ></Washer>
           </div>
-          <Button
-            className={classes.button}
-            variant="outlined"
-            color="primary"
-            onClick={onIncorrectClick}
-          >
-            Report Incorrect
-          </Button>
+          <div className="issue-container">
+            <button onClick={onIncorrectClick} className="report-incorrect-btn">
+              REPORT INCORRECT
+            </button>
+          </div>
         </div>
       ) : props?.selected.humphrey ? (
         <div className="main-div">
@@ -252,14 +243,11 @@ function MainView(props) {
               handleWasherClick={props?.handleWasherClick[3]}
             ></Washer>
           </div>
-          <Button
-            className={classes.button}
-            variant="outlined"
-            color="primary"
-            onClick={onIncorrectClick}
-          >
-            Report Incorrect
-          </Button>
+          <div className="issue-container">
+            <button onClick={onIncorrectClick} className="report-incorrect-btn">
+              REPORT INCORRECT
+            </button>
+          </div>
         </div>
       ) : (
         <div className="main-div">
