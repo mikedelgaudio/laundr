@@ -29,23 +29,23 @@ function MainView(props) {
             <Washer
               number="1"
               type="washer"
-              use={props?.washers.washer3}
+              use={props?.washers[0].washer1}
               timer={props?.timers.washer1}
-              handleWasherClick={props?.handleWasherClick}
+              handleWasherClick={props?.handleWasherClick[0]}
             ></Washer>
             <Washer
               number="2"
               type="washer"
-              use={props?.washers.washer2}
+              use={props?.washers[0].washer2}
               timer={props?.timers.washer2}
-              handleWasherClick={props?.handleWasherClick}
+              handleWasherClick={props?.handleWasherClick[0]}
             ></Washer>
             <Washer
               number="3"
               type="washer"
-              use={props?.washers.washer3}
+              use={props?.washers[0].washer3}
               timer={props?.timers.washer3}
-              handleWasherClick={props?.handleWasherClick}
+              handleWasherClick={props?.handleWasherClick[0]}
             ></Washer>
           </div>
           <h1 className="title">Dryers</h1>
@@ -54,23 +54,23 @@ function MainView(props) {
             <Washer
               number="1"
               type="dryer"
-              use={props?.dryers.dryer1}
+              use={props?.dryers[0].dryer1}
               timer={props?.timers.dryer1}
-              handleWasherClick={props?.handleWasherClick}
+              handleWasherClick={props?.handleWasherClick[0]}
             ></Washer>
             <Washer
               number="2"
               type="dryer"
-              use={props?.dryers.dryer3}
+              use={props?.dryers[0].dryer2}
               timer={props?.timers.dryer2}
-              handleWasherClick={props?.handleWasherClick}
+              handleWasherClick={props?.handleWasherClick[0]}
             ></Washer>
             <Washer
               number="3"
               type="dryer"
-              use={props?.dryers.dryer3}
+              use={props?.dryers[0].dryer3}
               timer={props?.timers.dryer3}
-              handleWasherClick={props?.handleWasherClick}
+              handleWasherClick={props?.handleWasherClick[0]}
             ></Washer>
           </div>
           <Button
@@ -89,23 +89,23 @@ function MainView(props) {
             <Washer
               number="1"
               type="washer"
-              use={props?.washers.washer1}
+              use={props?.washers[1].washer1}
               timer={props?.timers.washer1}
-              handleWasherClick={props?.handleWasherClick}
+              handleWasherClick={props?.handleWasherClick[1]}
             ></Washer>
             <Washer
               number="2"
               type="washer"
-              use={props?.washers.washer2}
+              use={props?.washers[1].washer2}
               timer={props?.timers.washer2}
-              handleWasherClick={props?.handleWasherClick}
+              handleWasherClick={props?.handleWasherClick[1]}
             ></Washer>
             <Washer
               number="3"
               type="washer"
-              use={props?.washers.washer3}
+              use={props?.washers[1].washer3}
               timer={props?.timers.washer3}
-              handleWasherClick={props?.handleWasherClick}
+              handleWasherClick={props?.handleWasherClick[1]}
             ></Washer>
           </div>
           <h1 className="title">Dryers</h1>
@@ -114,23 +114,23 @@ function MainView(props) {
             <Washer
               number="1"
               type="dryer"
-              use={props?.dryers.dryer1}
+              use={props?.dryers[1].dryer1}
               timer={props?.timers.dryer1}
-              handleWasherClick={props?.handleWasherClick}
+              handleWasherClick={props?.handleWasherClick[1]}
             ></Washer>
             <Washer
               number="2"
               type="dryer"
-              use={props?.dryers.dryer2}
+              use={props?.dryers[1].dryer2}
               timer={props?.timers.dryer2}
-              handleWasherClick={props?.handleWasherClick}
+              handleWasherClick={props?.handleWasherClick[1]}
             ></Washer>
             <Washer
               number="3"
               type="dryer"
-              use={props?.dryers.dryer3}
+              use={props?.dryers[1].dryer3}
               timer={props?.timers.dryer3}
-              handleWasherClick={props?.handleWasherClick}
+              handleWasherClick={props?.handleWasherClick[1]}
             ></Washer>
           </div>
           <Button
@@ -149,23 +149,23 @@ function MainView(props) {
             <Washer
               number="1"
               type="washer"
-              use={props?.washers.washer1}
+              use={props?.washers[2].washer1}
               timer={props?.timers.washer1}
-              handleWasherClick={props?.handleWasherClick}
+              handleWasherClick={props?.handleWasherClick[2]}
             ></Washer>
             <Washer
               number="2"
               type="washer"
-              use={props?.washers.washer2}
+              use={props?.washers[2].washer2}
               timer={props?.timers.washer2}
-              handleWasherClick={props?.handleWasherClick}
+              handleWasherClick={props?.handleWasherClick[2]}
             ></Washer>
             <Washer
               number="3"
               type="washer"
-              use={props?.washers.washer3}
+              use={props?.washers[2].washer3}
               timer={props?.timers.washer3}
-              handleWasherClick={props?.handleWasherClick}
+              handleWasherClick={props?.handleWasherClick[2]}
             ></Washer>
           </div>
           <h1 className="title">Dryers</h1>
@@ -174,23 +174,23 @@ function MainView(props) {
             <Washer
               number="1"
               type="dryer"
-              use={props?.dryers.dryer1}
+              use={props?.dryers[2].dryer1}
               timer={props?.timers.dryer1}
-              handleWasherClick={props?.handleWasherClick}
+              handleWasherClick={props?.handleWasherClick[2]}
             ></Washer>
             <Washer
               number="2"
               type="dryer"
-              use={props?.dryers.dryer1}
+              use={props?.dryers[2].dryer2}
               timer={props?.timers.dryer2}
-              handleWasherClick={props?.handleWasherClick}
+              handleWasherClick={props?.handleWasherClick[2]}
             ></Washer>
             <Washer
               number="3"
               type="dryer"
-              use={props?.dryers.dryer2}
+              use={props?.dryers[2].dryer3}
               timer={props?.timers.dryer3}
-              handleWasherClick={props?.handleWasherClick}
+              handleWasherClick={props?.handleWasherClick[2]}
             ></Washer>
           </div>
           <Button
@@ -209,23 +209,23 @@ function MainView(props) {
             <Washer
               number="1"
               type="washer"
-              use={props?.washers.washer1}
+              use={props?.washers[3].washer1}
               timer={props?.timers.washer1}
-              handleWasherClick={props?.handleWasherClick}
+              handleWasherClick={props?.handleWasherClick[3]}
             ></Washer>
             <Washer
               number="2"
               type="washer"
-              use={props?.washers.washer2}
+              use={props?.washers[3].washer2}
               timer={props?.timers.washer2}
-              handleWasherClick={props?.handleWasherClick}
+              handleWasherClick={props?.handleWasherClick[3]}
             ></Washer>
             <Washer
               number="3"
               type="washer"
-              use={props?.washers.washer1}
+              use={props?.washers[3].washer3}
               timer={props?.timers.washer3}
-              handleWasherClick={props?.handleWasherClick}
+              handleWasherClick={props?.handleWasherClick[3]}
             ></Washer>
           </div>
           <h1 className="title">Dryers</h1>
@@ -233,23 +233,23 @@ function MainView(props) {
             <Washer
               number="1"
               type="dryer"
-              use={props?.dryers.dryer1}
+              use={props?.dryers[3].dryer1}
               timer={props?.timers.dryer1}
-              handleWasherClick={props?.handleWasherClick}
+              handleWasherClick={props?.handleWasherClick[3]}
             ></Washer>
             <Washer
               number="2"
               type="dryer"
-              use={props?.dryers.dryer2}
+              use={props?.dryers[3].dryer2}
               timer={props?.timers.dryer2}
-              handleWasherClick={props?.handleWasherClick}
+              handleWasherClick={props?.handleWasherClick[3]}
             ></Washer>
             <Washer
               number="3"
               type="dryer"
-              use={props?.dryers.dryer1}
+              use={props?.dryers[3].dryer3}
               timer={props?.timers.dryer3}
-              handleWasherClick={props?.handleWasherClick}
+              handleWasherClick={props?.handleWasherClick[3]}
             ></Washer>
           </div>
           <Button
