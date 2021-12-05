@@ -39,10 +39,42 @@ function Layout() {
   const [washers, setWasher] = useState({
     washer1: "free",
     washer2: "free",
-    washer3: "ooo",
+    washer3: "free",
   });
   const [dryers, setDryer] = useState({
     dryer1: "free",
+    dryer2: "free",
+    dryer3: "free",
+  });
+  const [washers2, setWasher2] = useState({
+    washer1: "free",
+    washer2: "free",
+    washer3: "ooo",
+  });
+  const [dryers2, setDryer2] = useState({
+    dryer1: "free",
+    dryer2: "free",
+    dryer3: "ooo",
+  });
+
+  const [washers3, setWasher3] = useState({
+    washer1: "free",
+    washer2: "free",
+    washer3: "free",
+  });
+  const [dryers3, setDryer3] = useState({
+    dryer1: "free",
+    dryer2: "ooo",
+    dryer3: "free",
+  });
+
+  const [washers4, setWasher4] = useState({
+    washer1: "ooo",
+    washer2: "free",
+    washer3: "free",
+  });
+  const [dryers4, setDryer4] = useState({
+    dryer1: "ooo",
     dryer2: "free",
     dryer3: "ooo",
   });
@@ -434,6 +466,1120 @@ function Layout() {
       }
     }
   };
+
+  //***************************************************************************************** */
+  const handleWasherClick2 = (e) => {
+    let admin = sessionStorage.getItem("email");
+    let html = `${e.target.innerHTML}`;
+    if (admin !== "admin@stevens.edu") {
+      if (html.includes("Free")) {
+        if (html.includes("washer")) {
+          let now = new Date();
+          let end = new Date();
+          end.setMinutes(now.getMinutes() + 26);
+          const newTimeLeft = now - end;
+          const minutes = Math.floor(
+            (newTimeLeft % (1000 * 60 * 60)) / (1000 * 60)
+          );
+          const seconds = Math.floor((newTimeLeft % (1000 * 60)) / 1000);
+
+          if (html.includes(" 1<")) {
+            setWasher2({
+              washer1: "in-use",
+              washer2: washers2.washer2,
+              washer3: washers2.washer3,
+            });
+            setTimer({
+              washer1: end,
+              washer2: endTimers.washer2,
+              washer3: endTimers.washer3,
+              dryer1: endTimers.dryer1,
+              dryer2: endTimers.dryer2,
+              dryer3: endTimers.dryer3,
+            });
+            setTimeLeft({
+              washer1: `${minutes}:${seconds}`,
+              washer2: timeLeft.washer2,
+              washer3: timeLeft.washer3,
+              dryer1: timeLeft.dryer1,
+              dryer2: timeLeft.dryer2,
+              dryer3: timeLeft.dryer3,
+            });
+          }
+          if (html.includes(" 2<")) {
+            setWasher2({
+              washer1: washers2.washer1,
+              washer2: "in-use",
+              washer3: washers2.washer3,
+            });
+            setTimer({
+              washer1: endTimers.washer1,
+              washer2: end,
+              washer3: endTimers.washer3,
+              dryer1: endTimers.dryer1,
+              dryer2: endTimers.dryer2,
+              dryer3: endTimers.dryer3,
+            });
+            setTimeLeft({
+              washer1: timeLeft.washer1,
+              washer2: `${minutes}:${seconds}`,
+              washer3: timeLeft.washer3,
+              dryer1: timeLeft.dryer1,
+              dryer2: timeLeft.dryer2,
+              dryer3: timeLeft.dryer3,
+            });
+          }
+          if (html.includes(" 3<")) {
+            setWasher2({
+              washer1: washers2.washer1,
+              washer2: washers2.washer2,
+              washer3: "in-use",
+            });
+            setTimer({
+              washer1: endTimers.washer1,
+              washer2: endTimers.washer2,
+              washer3: end,
+              dryer1: endTimers.dryer1,
+              dryer2: endTimers.dryer2,
+              dryer3: endTimers.dryer3,
+            });
+            setTimeLeft({
+              washer1: timeLeft.washer1,
+              washer2: timeLeft.washer2,
+              washer3: `${minutes}:${seconds}`,
+              dryer1: timeLeft.dryer1,
+              dryer2: timeLeft.dryer2,
+              dryer3: timeLeft.dryer3,
+            });
+          }
+        }
+        if (html.includes("dryer")) {
+          let now = new Date();
+          let end = new Date();
+          end.setMinutes(now.getMinutes() + 45);
+          const newTimeLeft = now - end;
+          const minutes = Math.floor(
+            (newTimeLeft % (1000 * 60 * 60)) / (1000 * 60)
+          );
+          const seconds = Math.floor((newTimeLeft % (1000 * 60)) / 1000);
+
+          if (html.includes(" 1<")) {
+            setDryer2({
+              dryer1: "in-use",
+              dryer2: dryers2.dryer2,
+              dryer3: dryers2.dryer3,
+            });
+            setTimer({
+              washer1: endTimers.washer1,
+              washer2: endTimers.washer2,
+              washer3: endTimers.washer3,
+              dryer1: end,
+              dryer2: endTimers.dryer2,
+              dryer3: endTimers.dryer3,
+            });
+            setTimeLeft({
+              washer1: timeLeft.washer1,
+              washer2: timeLeft.washer2,
+              washer3: timeLeft.washer3,
+              dryer1: `${minutes}:${seconds}`,
+              dryer2: timeLeft.dryer2,
+              dryer3: timeLeft.dryer3,
+            });
+          }
+          if (html.includes(" 2<")) {
+            setDryer2({
+              dryer1: dryers2.dryer1,
+              dryer2: "in-use",
+              dryer3: dryers2.dryer3,
+            });
+            setTimer({
+              washer1: endTimers.washer1,
+              washer2: endTimers.washer2,
+              washer3: endTimers.washer3,
+              dryer1: endTimers.dryer1,
+              dryer2: end,
+              dryer3: endTimers.dryer3,
+            });
+            setTimeLeft({
+              washer1: timeLeft.washer1,
+              washer2: timeLeft.washer2,
+              washer3: timeLeft.washer3,
+              dryer1: timeLeft.dryer1,
+              dryer2: `${minutes}:${seconds}`,
+              dryer3: timeLeft.dryer3,
+            });
+          }
+          if (html.includes(" 3<")) {
+            setDryer2({
+              dryer1: dryers.dryer1,
+              dryer2: dryers.dryer2,
+              dryer3: "in-use",
+            });
+            setTimer({
+              washer1: endTimers.washer1,
+              washer2: endTimers.washer2,
+              washer3: endTimers.washer3,
+              dryer1: endTimers.dryer1,
+              dryer2: endTimers.dryer2,
+              dryer3: end,
+            });
+            setTimeLeft({
+              washer1: timeLeft.washer1,
+              washer2: timeLeft.washer2,
+              washer3: timeLeft.washer3,
+              dryer1: timeLeft.dryer1,
+              dryer2: timeLeft.dryer2,
+              dryer3: `${minutes}:${seconds}`,
+            });
+          }
+        }
+      }
+    } else {
+      if (html.includes("Out")) {
+        if (html.includes("washer")) {
+          let now = new Date();
+          let end = new Date();
+          end.setMinutes(now.getMinutes() + 26);
+          const newTimeLeft = now - end;
+          const minutes = Math.floor(
+            (newTimeLeft % (1000 * 60 * 60)) / (1000 * 60)
+          );
+          const seconds = Math.floor((newTimeLeft % (1000 * 60)) / 1000);
+
+          if (html.includes(" 1<")) {
+            setWasher2({
+              washer1: "free",
+              washer2: washers2.washer2,
+              washer3: washers2.washer3,
+            });
+          }
+          if (html.includes(" 2<")) {
+            setWasher2({
+              washer1: washers2.washer1,
+              washer2: "free",
+              washer3: washers2.washer3,
+            });
+          }
+          if (html.includes(" 3<")) {
+            setWasher2({
+              washer1: washers2.washer1,
+              washer2: washers2.washer2,
+              washer3: "free",
+            });
+          }
+        }
+        if (html.includes("dryer")) {
+          let now = new Date();
+          let end = new Date();
+          end.setMinutes(now.getMinutes() + 45);
+          const newTimeLeft = now - end;
+          const minutes = Math.floor(
+            (newTimeLeft % (1000 * 60 * 60)) / (1000 * 60)
+          );
+          const seconds = Math.floor((newTimeLeft % (1000 * 60)) / 1000);
+
+          if (html.includes(" 1<")) {
+            setDryer2({
+              dryer1: "free",
+              dryer2: dryers2.dryer2,
+              dryer3: dryers2.dryer3,
+            });
+          }
+          if (html.includes(" 2<")) {
+            setDryer2({
+              dryer1: dryers2.dryer1,
+              dryer2: "free",
+              dryer3: dryers2.dryer3,
+            });
+          }
+          if (html.includes(" 3<")) {
+            setDryer2({
+              dryer1: dryers2.dryer1,
+              dryer2: dryers2.dryer2,
+              dryer3: "free",
+            });
+          }
+        }
+      }
+
+      if (html.includes("Free")) {
+        if (html.includes("washer")) {
+          let now = new Date();
+          let end = new Date();
+          end.setMinutes(now.getMinutes() + 26);
+          const newTimeLeft = now - end;
+          const minutes = Math.floor(
+            (newTimeLeft % (1000 * 60 * 60)) / (1000 * 60)
+          );
+          const seconds = Math.floor((newTimeLeft % (1000 * 60)) / 1000);
+
+          if (html.includes(" 1<")) {
+            setWasher2({
+              washer1: "ooo",
+              washer2: washers2.washer2,
+              washer3: washers2.washer3,
+            });
+          }
+          if (html.includes(" 2<")) {
+            setWasher2({
+              washer1: washers2.washer1,
+              washer2: "ooo",
+              washer3: washers2.washer3,
+            });
+          }
+          if (html.includes(" 3<")) {
+            setWasher2({
+              washer1: washers2.washer1,
+              washer2: washers2.washer2,
+              washer3: "ooo",
+            });
+          }
+        }
+        if (html.includes("dryer")) {
+          let now = new Date();
+          let end = new Date();
+          end.setMinutes(now.getMinutes() + 45);
+          const newTimeLeft = now - end;
+          const minutes = Math.floor(
+            (newTimeLeft % (1000 * 60 * 60)) / (1000 * 60)
+          );
+          const seconds = Math.floor((newTimeLeft % (1000 * 60)) / 1000);
+
+          if (html.includes(" 1<")) {
+            setDryer2({
+              dryer1: "ooo",
+              dryer2: dryers2.dryer2,
+              dryer3: dryers2.dryer3,
+            });
+          }
+          if (html.includes(" 2<")) {
+            setDryer2({
+              dryer1: dryers2.dryer1,
+              dryer2: "ooo",
+              dryer3: dryers2.dryer3,
+            });
+          }
+          if (html.includes(" 3<")) {
+            setDryer2({
+              dryer1: dryers2.dryer1,
+              dryer2: dryers2.dryer2,
+              dryer3: "ooo",
+            });
+          }
+        }
+      }
+
+      if (html.includes("In")) {
+        if (html.includes("washer")) {
+          let now = new Date();
+          let end = new Date();
+          end.setMinutes(now.getMinutes() + 26);
+          const newTimeLeft = now - end;
+          const minutes = Math.floor(
+            (newTimeLeft % (1000 * 60 * 60)) / (1000 * 60)
+          );
+          const seconds = Math.floor((newTimeLeft % (1000 * 60)) / 1000);
+
+          if (html.includes(" 1<")) {
+            setWasher2({
+              washer1: "free",
+              washer2: washers2.washer2,
+              washer3: washers2.washer3,
+            });
+          }
+          if (html.includes(" 2<")) {
+            setWasher2({
+              washer1: washers2.washer1,
+              washer2: "free",
+              washer3: washers2.washer3,
+            });
+          }
+          if (html.includes(" 3<")) {
+            setWasher2({
+              washer1: washers2.washer1,
+              washer2: washers2.washer2,
+              washer3: "free",
+            });
+          }
+        }
+        if (html.includes("dryer")) {
+          let now = new Date();
+          let end = new Date();
+          end.setMinutes(now.getMinutes() + 45);
+          const newTimeLeft = now - end;
+          const minutes = Math.floor(
+            (newTimeLeft % (1000 * 60 * 60)) / (1000 * 60)
+          );
+          const seconds = Math.floor((newTimeLeft % (1000 * 60)) / 1000);
+
+          if (html.includes(" 1<")) {
+            setDryer2({
+              dryer1: "free",
+              dryer2: dryers2.dryer2,
+              dryer3: dryers2.dryer3,
+            });
+          }
+          if (html.includes(" 2<")) {
+            setDryer2({
+              dryer1: dryers2.dryer1,
+              dryer2: "free",
+              dryer3: dryers2.dryer3,
+            });
+          }
+          if (html.includes(" 3<")) {
+            setDryer2({
+              dryer1: dryers2.dryer1,
+              dryer2: dryers2.dryer2,
+              dryer3: "free",
+            });
+          }
+        }
+      }
+    }
+  };
+  // ************************************************************************************
+
+  const handleWasherClick3 = (e) => {
+    let admin = sessionStorage.getItem("email");
+    let html = `${e.target.innerHTML}`;
+    if (admin !== "admin@stevens.edu") {
+      if (html.includes("Free")) {
+        if (html.includes("washer")) {
+          let now = new Date();
+          let end = new Date();
+          end.setMinutes(now.getMinutes() + 26);
+          const newTimeLeft = now - end;
+          const minutes = Math.floor(
+            (newTimeLeft % (1000 * 60 * 60)) / (1000 * 60)
+          );
+          const seconds = Math.floor((newTimeLeft % (1000 * 60)) / 1000);
+
+          if (html.includes(" 1<")) {
+            setWasher3({
+              washer1: "in-use",
+              washer2: washers3.washer2,
+              washer3: washers3.washer3,
+            });
+            setTimer({
+              washer1: end,
+              washer2: endTimers.washer2,
+              washer3: endTimers.washer3,
+              dryer1: endTimers.dryer1,
+              dryer2: endTimers.dryer2,
+              dryer3: endTimers.dryer3,
+            });
+            setTimeLeft({
+              washer1: `${minutes}:${seconds}`,
+              washer2: timeLeft.washer2,
+              washer3: timeLeft.washer3,
+              dryer1: timeLeft.dryer1,
+              dryer2: timeLeft.dryer2,
+              dryer3: timeLeft.dryer3,
+            });
+          }
+          if (html.includes(" 2<")) {
+            setWasher3({
+              washer1: washers3.washer1,
+              washer2: "in-use",
+              washer3: washers3.washer3,
+            });
+            setTimer({
+              washer1: endTimers.washer1,
+              washer2: end,
+              washer3: endTimers.washer3,
+              dryer1: endTimers.dryer1,
+              dryer2: endTimers.dryer2,
+              dryer3: endTimers.dryer3,
+            });
+            setTimeLeft({
+              washer1: timeLeft.washer1,
+              washer2: `${minutes}:${seconds}`,
+              washer3: timeLeft.washer3,
+              dryer1: timeLeft.dryer1,
+              dryer2: timeLeft.dryer2,
+              dryer3: timeLeft.dryer3,
+            });
+          }
+          if (html.includes(" 3<")) {
+            setWasher3({
+              washer1: washers3.washer1,
+              washer2: washers3.washer2,
+              washer3: "in-use",
+            });
+            setTimer({
+              washer1: endTimers.washer1,
+              washer2: endTimers.washer2,
+              washer3: end,
+              dryer1: endTimers.dryer1,
+              dryer2: endTimers.dryer2,
+              dryer3: endTimers.dryer3,
+            });
+            setTimeLeft({
+              washer1: timeLeft.washer1,
+              washer2: timeLeft.washer2,
+              washer3: `${minutes}:${seconds}`,
+              dryer1: timeLeft.dryer1,
+              dryer2: timeLeft.dryer2,
+              dryer3: timeLeft.dryer3,
+            });
+          }
+        }
+        if (html.includes("dryer")) {
+          let now = new Date();
+          let end = new Date();
+          end.setMinutes(now.getMinutes() + 45);
+          const newTimeLeft = now - end;
+          const minutes = Math.floor(
+            (newTimeLeft % (1000 * 60 * 60)) / (1000 * 60)
+          );
+          const seconds = Math.floor((newTimeLeft % (1000 * 60)) / 1000);
+
+          if (html.includes(" 1<")) {
+            setDryer3({
+              dryer1: "in-use",
+              dryer2: dryers3.dryer2,
+              dryer3: dryers3.dryer3,
+            });
+            setTimer({
+              washer1: endTimers.washer1,
+              washer2: endTimers.washer2,
+              washer3: endTimers.washer3,
+              dryer1: end,
+              dryer2: endTimers.dryer2,
+              dryer3: endTimers.dryer3,
+            });
+            setTimeLeft({
+              washer1: timeLeft.washer1,
+              washer2: timeLeft.washer2,
+              washer3: timeLeft.washer3,
+              dryer1: `${minutes}:${seconds}`,
+              dryer2: timeLeft.dryer2,
+              dryer3: timeLeft.dryer3,
+            });
+          }
+          if (html.includes(" 2<")) {
+            setDryer3({
+              dryer1: dryers3.dryer1,
+              dryer2: "in-use",
+              dryer3: dryers3.dryer3,
+            });
+            setTimer({
+              washer1: endTimers.washer1,
+              washer2: endTimers.washer2,
+              washer3: endTimers.washer3,
+              dryer1: endTimers.dryer1,
+              dryer2: end,
+              dryer3: endTimers.dryer3,
+            });
+            setTimeLeft({
+              washer1: timeLeft.washer1,
+              washer2: timeLeft.washer2,
+              washer3: timeLeft.washer3,
+              dryer1: timeLeft.dryer1,
+              dryer2: `${minutes}:${seconds}`,
+              dryer3: timeLeft.dryer3,
+            });
+          }
+          if (html.includes(" 3<")) {
+            setDryer3({
+              dryer1: dryers3.dryer1,
+              dryer2: dryers3.dryer2,
+              dryer3: "in-use",
+            });
+            setTimer({
+              washer1: endTimers.washer1,
+              washer2: endTimers.washer2,
+              washer3: endTimers.washer3,
+              dryer1: endTimers.dryer1,
+              dryer2: endTimers.dryer2,
+              dryer3: end,
+            });
+            setTimeLeft({
+              washer1: timeLeft.washer1,
+              washer2: timeLeft.washer2,
+              washer3: timeLeft.washer3,
+              dryer1: timeLeft.dryer1,
+              dryer2: timeLeft.dryer2,
+              dryer3: `${minutes}:${seconds}`,
+            });
+          }
+        }
+      }
+    } else {
+      if (html.includes("Out")) {
+        if (html.includes("washer")) {
+          let now = new Date();
+          let end = new Date();
+          end.setMinutes(now.getMinutes() + 26);
+          const newTimeLeft = now - end;
+          const minutes = Math.floor(
+            (newTimeLeft % (1000 * 60 * 60)) / (1000 * 60)
+          );
+          const seconds = Math.floor((newTimeLeft % (1000 * 60)) / 1000);
+
+          if (html.includes(" 1<")) {
+            setWasher3({
+              washer1: "free",
+              washer2: washers3.washer2,
+              washer3: washers3.washer3,
+            });
+          }
+          if (html.includes(" 2<")) {
+            setWasher3({
+              washer1: washers3.washer1,
+              washer2: "free",
+              washer3: washers3.washer3,
+            });
+          }
+          if (html.includes(" 3<")) {
+            setWasher3({
+              washer1: washers3.washer1,
+              washer2: washers3.washer2,
+              washer3: "free",
+            });
+          }
+        }
+        if (html.includes("dryer")) {
+          let now = new Date();
+          let end = new Date();
+          end.setMinutes(now.getMinutes() + 45);
+          const newTimeLeft = now - end;
+          const minutes = Math.floor(
+            (newTimeLeft % (1000 * 60 * 60)) / (1000 * 60)
+          );
+          const seconds = Math.floor((newTimeLeft % (1000 * 60)) / 1000);
+
+          if (html.includes(" 1<")) {
+            setDryer3({
+              dryer1: "free",
+              dryer2: dryers3.dryer2,
+              dryer3: dryers3.dryer3,
+            });
+          }
+          if (html.includes(" 2<")) {
+            setDryer3({
+              dryer1: dryers3.dryer1,
+              dryer2: "free",
+              dryer3: dryers3.dryer3,
+            });
+          }
+          if (html.includes(" 3<")) {
+            setDryer3({
+              dryer1: dryers3.dryer1,
+              dryer2: dryers3.dryer2,
+              dryer3: "free",
+            });
+          }
+        }
+      }
+
+      if (html.includes("Free")) {
+        if (html.includes("washer")) {
+          let now = new Date();
+          let end = new Date();
+          end.setMinutes(now.getMinutes() + 26);
+          const newTimeLeft = now - end;
+          const minutes = Math.floor(
+            (newTimeLeft % (1000 * 60 * 60)) / (1000 * 60)
+          );
+          const seconds = Math.floor((newTimeLeft % (1000 * 60)) / 1000);
+
+          if (html.includes(" 1<")) {
+            setWasher3({
+              washer1: "ooo",
+              washer2: washers3.washer2,
+              washer3: washers3.washer3,
+            });
+          }
+          if (html.includes(" 2<")) {
+            setWasher3({
+              washer1: washers3.washer1,
+              washer2: "ooo",
+              washer3: washers3.washer3,
+            });
+          }
+          if (html.includes(" 3<")) {
+            setWasher3({
+              washer1: washers3.washer1,
+              washer2: washers3.washer2,
+              washer3: "ooo",
+            });
+          }
+        }
+        if (html.includes("dryer")) {
+          let now = new Date();
+          let end = new Date();
+          end.setMinutes(now.getMinutes() + 45);
+          const newTimeLeft = now - end;
+          const minutes = Math.floor(
+            (newTimeLeft % (1000 * 60 * 60)) / (1000 * 60)
+          );
+          const seconds = Math.floor((newTimeLeft % (1000 * 60)) / 1000);
+
+          if (html.includes(" 1<")) {
+            setDryer3({
+              dryer1: "ooo",
+              dryer2: dryers3.dryer2,
+              dryer3: dryers3.dryer3,
+            });
+          }
+          if (html.includes(" 2<")) {
+            setDryer3({
+              dryer1: dryers3.dryer1,
+              dryer2: "ooo",
+              dryer3: dryers3.dryer3,
+            });
+          }
+          if (html.includes(" 3<")) {
+            setDryer3({
+              dryer1: dryers3.dryer1,
+              dryer2: dryers3.dryer2,
+              dryer3: "ooo",
+            });
+          }
+        }
+      }
+
+      if (html.includes("In")) {
+        if (html.includes("washer")) {
+          let now = new Date();
+          let end = new Date();
+          end.setMinutes(now.getMinutes() + 26);
+          const newTimeLeft = now - end;
+          const minutes = Math.floor(
+            (newTimeLeft % (1000 * 60 * 60)) / (1000 * 60)
+          );
+          const seconds = Math.floor((newTimeLeft % (1000 * 60)) / 1000);
+
+          if (html.includes(" 1<")) {
+            setWasher3({
+              washer1: "free",
+              washer2: washers3.washer2,
+              washer3: washers3.washer3,
+            });
+          }
+          if (html.includes(" 2<")) {
+            setWasher3({
+              washer1: washers3.washer1,
+              washer2: "free",
+              washer3: washers3.washer3,
+            });
+          }
+          if (html.includes(" 3<")) {
+            setWasher3({
+              washer1: washers3.washer1,
+              washer2: washers3.washer2,
+              washer3: "free",
+            });
+          }
+        }
+        if (html.includes("dryer")) {
+          let now = new Date();
+          let end = new Date();
+          end.setMinutes(now.getMinutes() + 45);
+          const newTimeLeft = now - end;
+          const minutes = Math.floor(
+            (newTimeLeft % (1000 * 60 * 60)) / (1000 * 60)
+          );
+          const seconds = Math.floor((newTimeLeft % (1000 * 60)) / 1000);
+
+          if (html.includes(" 1<")) {
+            setDryer3({
+              dryer1: "free",
+              dryer2: dryers3.dryer2,
+              dryer3: dryers3.dryer3,
+            });
+          }
+          if (html.includes(" 2<")) {
+            setDryer3({
+              dryer1: dryers3.dryer1,
+              dryer2: "free",
+              dryer3: dryers3.dryer3,
+            });
+          }
+          if (html.includes(" 3<")) {
+            setDryer3({
+              dryer1: dryers3.dryer1,
+              dryer2: dryers3.dryer2,
+              dryer3: "free",
+            });
+          }
+        }
+      }
+    }
+  };
+
+  // ***********************************************************************************************
+  const handleWasherClick4 = (e) => {
+    let admin = sessionStorage.getItem("email");
+    let html = `${e.target.innerHTML}`;
+    console.log(html);
+    if (admin !== "admin@stevens.edu") {
+      if (html.includes("Free")) {
+        if (html.includes("washer")) {
+          let now = new Date();
+          let end = new Date();
+          end.setMinutes(now.getMinutes() + 26);
+          const newTimeLeft = now - end;
+          const minutes = Math.floor(
+            (newTimeLeft % (1000 * 60 * 60)) / (1000 * 60)
+          );
+          const seconds = Math.floor((newTimeLeft % (1000 * 60)) / 1000);
+
+          if (html.includes(" 1<")) {
+            setWasher4({
+              washer1: "in-use",
+              washer2: washers4.washer2,
+              washer3: washers4.washer3,
+            });
+            setTimer({
+              washer1: end,
+              washer2: endTimers.washer2,
+              washer3: endTimers.washer3,
+              dryer1: endTimers.dryer1,
+              dryer2: endTimers.dryer2,
+              dryer3: endTimers.dryer3,
+            });
+            setTimeLeft({
+              washer1: `${minutes}:${seconds}`,
+              washer2: timeLeft.washer2,
+              washer3: timeLeft.washer3,
+              dryer1: timeLeft.dryer1,
+              dryer2: timeLeft.dryer2,
+              dryer3: timeLeft.dryer3,
+            });
+          }
+          if (html.includes(" 2<")) {
+            setWasher4({
+              washer1: washers4.washer1,
+              washer2: "in-use",
+              washer3: washers4.washer3,
+            });
+            setTimer({
+              washer1: endTimers.washer1,
+              washer2: end,
+              washer3: endTimers.washer3,
+              dryer1: endTimers.dryer1,
+              dryer2: endTimers.dryer2,
+              dryer3: endTimers.dryer3,
+            });
+            setTimeLeft({
+              washer1: timeLeft.washer1,
+              washer2: `${minutes}:${seconds}`,
+              washer3: timeLeft.washer3,
+              dryer1: timeLeft.dryer1,
+              dryer2: timeLeft.dryer2,
+              dryer3: timeLeft.dryer3,
+            });
+          }
+          if (html.includes(" 3<")) {
+            setWasher4({
+              washer1: washers4.washer1,
+              washer2: washers4.washer2,
+              washer3: "in-use",
+            });
+            setTimer({
+              washer1: endTimers.washer1,
+              washer2: endTimers.washer2,
+              washer3: end,
+              dryer1: endTimers.dryer1,
+              dryer2: endTimers.dryer2,
+              dryer3: endTimers.dryer3,
+            });
+            setTimeLeft({
+              washer1: timeLeft.washer1,
+              washer2: timeLeft.washer2,
+              washer3: `${minutes}:${seconds}`,
+              dryer1: timeLeft.dryer1,
+              dryer2: timeLeft.dryer2,
+              dryer3: timeLeft.dryer3,
+            });
+          }
+        }
+        if (html.includes("dryer")) {
+          let now = new Date();
+          let end = new Date();
+          end.setMinutes(now.getMinutes() + 45);
+          const newTimeLeft = now - end;
+          const minutes = Math.floor(
+            (newTimeLeft % (1000 * 60 * 60)) / (1000 * 60)
+          );
+          const seconds = Math.floor((newTimeLeft % (1000 * 60)) / 1000);
+
+          if (html.includes(" 1<")) {
+            setDryer4({
+              dryer1: "in-use",
+              dryer2: dryers4.dryer2,
+              dryer3: dryers4.dryer3,
+            });
+            setTimer({
+              washer1: endTimers.washer1,
+              washer2: endTimers.washer2,
+              washer3: endTimers.washer3,
+              dryer1: end,
+              dryer2: endTimers.dryer2,
+              dryer3: endTimers.dryer3,
+            });
+            setTimeLeft({
+              washer1: timeLeft.washer1,
+              washer2: timeLeft.washer2,
+              washer3: timeLeft.washer3,
+              dryer1: `${minutes}:${seconds}`,
+              dryer2: timeLeft.dryer2,
+              dryer3: timeLeft.dryer3,
+            });
+          }
+          if (html.includes(" 2<")) {
+            setDryer4({
+              dryer1: dryers4.dryer1,
+              dryer2: "in-use",
+              dryer3: dryers4.dryer3,
+            });
+            setTimer({
+              washer1: endTimers.washer1,
+              washer2: endTimers.washer2,
+              washer3: endTimers.washer3,
+              dryer1: endTimers.dryer1,
+              dryer2: end,
+              dryer3: endTimers.dryer3,
+            });
+            setTimeLeft({
+              washer1: timeLeft.washer1,
+              washer2: timeLeft.washer2,
+              washer3: timeLeft.washer3,
+              dryer1: timeLeft.dryer1,
+              dryer2: `${minutes}:${seconds}`,
+              dryer3: timeLeft.dryer3,
+            });
+          }
+          if (html.includes(" 3<")) {
+            setDryer4({
+              dryer1: dryers4.dryer1,
+              dryer2: dryers4.dryer2,
+              dryer3: "in-use",
+            });
+            setTimer({
+              washer1: endTimers.washer1,
+              washer2: endTimers.washer2,
+              washer3: endTimers.washer3,
+              dryer1: endTimers.dryer1,
+              dryer2: endTimers.dryer2,
+              dryer3: end,
+            });
+            setTimeLeft({
+              washer1: timeLeft.washer1,
+              washer2: timeLeft.washer2,
+              washer3: timeLeft.washer3,
+              dryer1: timeLeft.dryer1,
+              dryer2: timeLeft.dryer2,
+              dryer3: `${minutes}:${seconds}`,
+            });
+          }
+        }
+      }
+    } else {
+      if (html.includes("Out")) {
+        if (html.includes("washer")) {
+          let now = new Date();
+          let end = new Date();
+          end.setMinutes(now.getMinutes() + 26);
+          const newTimeLeft = now - end;
+          const minutes = Math.floor(
+            (newTimeLeft % (1000 * 60 * 60)) / (1000 * 60)
+          );
+          const seconds = Math.floor((newTimeLeft % (1000 * 60)) / 1000);
+
+          if (html.includes(" 1<")) {
+            setWasher4({
+              washer1: "free",
+              washer2: washers4.washer2,
+              washer3: washers4.washer3,
+            });
+          }
+          if (html.includes(" 2<")) {
+            setWasher4({
+              washer1: washers4.washer1,
+              washer2: "free",
+              washer3: washers4.washer3,
+            });
+          }
+          if (html.includes(" 3<")) {
+            setWasher4({
+              washer1: washers4.washer1,
+              washer2: washers4.washer2,
+              washer3: "free",
+            });
+          }
+        }
+        if (html.includes("dryer")) {
+          let now = new Date();
+          let end = new Date();
+          end.setMinutes(now.getMinutes() + 45);
+          const newTimeLeft = now - end;
+          const minutes = Math.floor(
+            (newTimeLeft % (1000 * 60 * 60)) / (1000 * 60)
+          );
+          const seconds = Math.floor((newTimeLeft % (1000 * 60)) / 1000);
+
+          if (html.includes(" 1<")) {
+            setDryer4({
+              dryer1: "free",
+              dryer2: dryers4.dryer2,
+              dryer3: dryers4.dryer3,
+            });
+          }
+          if (html.includes(" 2<")) {
+            setDryer4({
+              dryer1: dryers4.dryer1,
+              dryer2: "free",
+              dryer3: dryers4.dryer3,
+            });
+          }
+          if (html.includes(" 3<")) {
+            setDryer4({
+              dryer1: dryers4.dryer1,
+              dryer2: dryers4.dryer2,
+              dryer3: "free",
+            });
+          }
+        }
+      }
+
+      if (html.includes("Free")) {
+        if (html.includes("washer")) {
+          let now = new Date();
+          let end = new Date();
+          end.setMinutes(now.getMinutes() + 26);
+          const newTimeLeft = now - end;
+          const minutes = Math.floor(
+            (newTimeLeft % (1000 * 60 * 60)) / (1000 * 60)
+          );
+          const seconds = Math.floor((newTimeLeft % (1000 * 60)) / 1000);
+
+          if (html.includes(" 1<")) {
+            setWasher4({
+              washer1: "ooo",
+              washer2: washers4.washer2,
+              washer3: washers4.washer3,
+            });
+          }
+          if (html.includes(" 2<")) {
+            setWasher4({
+              washer1: washers4.washer1,
+              washer2: "ooo",
+              washer3: washers4.washer3,
+            });
+          }
+          if (html.includes(" 3<")) {
+            setWasher4({
+              washer1: washers4.washer1,
+              washer2: washers4.washer2,
+              washer3: "ooo",
+            });
+          }
+        }
+        if (html.includes("dryer")) {
+          let now = new Date();
+          let end = new Date();
+          end.setMinutes(now.getMinutes() + 45);
+          const newTimeLeft = now - end;
+          const minutes = Math.floor(
+            (newTimeLeft % (1000 * 60 * 60)) / (1000 * 60)
+          );
+          const seconds = Math.floor((newTimeLeft % (1000 * 60)) / 1000);
+
+          if (html.includes(" 1<")) {
+            setDryer4({
+              dryer1: "ooo",
+              dryer2: dryers4.dryer2,
+              dryer3: dryers4.dryer3,
+            });
+          }
+          if (html.includes(" 2<")) {
+            setDryer4({
+              dryer1: dryers4.dryer1,
+              dryer2: "ooo",
+              dryer3: dryers4.dryer3,
+            });
+          }
+          if (html.includes(" 3<")) {
+            setDryer4({
+              dryer1: dryers4.dryer1,
+              dryer2: dryers4.dryer2,
+              dryer3: "ooo",
+            });
+          }
+        }
+      }
+
+      if (html.includes("In")) {
+        if (html.includes("washer")) {
+          let now = new Date();
+          let end = new Date();
+          end.setMinutes(now.getMinutes() + 26);
+          const newTimeLeft = now - end;
+          const minutes = Math.floor(
+            (newTimeLeft % (1000 * 60 * 60)) / (1000 * 60)
+          );
+          const seconds = Math.floor((newTimeLeft % (1000 * 60)) / 1000);
+
+          if (html.includes(" 1<")) {
+            setWasher4({
+              washer1: "free",
+              washer2: washers4.washer2,
+              washer3: washers4.washer3,
+            });
+          }
+          if (html.includes(" 2<")) {
+            setWasher4({
+              washer1: washers4.washer1,
+              washer2: "free",
+              washer3: washers4.washer3,
+            });
+          }
+          if (html.includes(" 3<")) {
+            setWasher4({
+              washer1: washers4.washer1,
+              washer2: washers4.washer2,
+              washer3: "free",
+            });
+          }
+        }
+        if (html.includes("dryer")) {
+          let now = new Date();
+          let end = new Date();
+          end.setMinutes(now.getMinutes() + 45);
+          const newTimeLeft = now - end;
+          const minutes = Math.floor(
+            (newTimeLeft % (1000 * 60 * 60)) / (1000 * 60)
+          );
+          const seconds = Math.floor((newTimeLeft % (1000 * 60)) / 1000);
+
+          if (html.includes(" 1<")) {
+            setDryer4({
+              dryer1: "free",
+              dryer2: dryers4.dryer2,
+              dryer3: dryers4.dryer3,
+            });
+          }
+          if (html.includes(" 2<")) {
+            setDryer4({
+              dryer1: dryers4.dryer1,
+              dryer2: "free",
+              dryer3: dryers4.dryer3,
+            });
+          }
+          if (html.includes(" 3<")) {
+            setDryer4({
+              dryer1: dryers4.dryer1,
+              dryer2: dryers4.dryer2,
+              dryer3: "free",
+            });
+          }
+        }
+      }
+    }
+  };
   const displayMain = () => {
     const interval = setInterval(function () {
       const now = new Date();
@@ -691,10 +1837,15 @@ function Layout() {
           <MainView
             selected={selected}
             favorited={favorited}
-            washers={washers}
-            dryers={dryers}
+            washers={[washers, washers2, washers3, washers4]}
+            dryers={[dryers, dryers2, dryers3, dryers4]}
             timers={timeLeft}
-            handleWasherClick={handleWasherClick}
+            handleWasherClick={[
+              handleWasherClick,
+              handleWasherClick2,
+              handleWasherClick3,
+              handleWasherClick4,
+            ]}
           />
         );
       case "faq":

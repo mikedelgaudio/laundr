@@ -14,7 +14,7 @@ const Washer = (props) => {
         <h1 className="ooo">Out of Order</h1>
       )}
       <div className="hidden">
-        <p>
+        <p className="machine-label">
           {props?.type} {props?.number}
         </p>
       </div>
